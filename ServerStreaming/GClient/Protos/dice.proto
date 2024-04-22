@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GServer";
+
+package Dice;
+
+service DiceResultStreaming {
+  rpc GetRandom (RandomRequest) returns (stream RandomReply);
+}
+
+message RandomRequest {
+  int32 cubeWalls = 1;
+  int32 results = 2;
+}
+
+message RandomReply {
+  int32 result = 1;
+}
