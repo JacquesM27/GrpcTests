@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "GbsServer";
+
+package ChatBid;
+
+service ChatBidService {
+  rpc Chat (stream ChatMessage) returns (stream ChatMessage);
+}
+
+message ChatMessage {
+  string userId = 1;
+  string message = 2;
+}
