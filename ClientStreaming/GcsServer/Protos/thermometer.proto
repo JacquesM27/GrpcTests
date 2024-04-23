@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "GcsServer";
+
+package Thermometer;
+
+service ThermometerService {
+  rpc StreamTemperatures (stream TemperatureReading) returns (TemperatureSummary);
+}
+
+message TemperatureReading {
+  int32 roomId = 1;
+  float temperature = 2;
+}
+
+message TemperatureSummary {
+  int32 totalReadings = 1;
+  float averageTemperature = 2;
+}
